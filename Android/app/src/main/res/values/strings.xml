@@ -15,4 +15,5 @@
     <string name="feature_coming_soon">Feature Coming soon...</string>
     <string name="link_to_google_maps">Link to google maps:</string>
     <string name="view_location">View location</string>
+    <string name="out_of_restaurants">Out of Restaurants Check Back Later!</string>
 </resources>

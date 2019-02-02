@@ -11,6 +11,7 @@
             android:id="@+id/noFavourites"
             android:text="@string/you_have_no_favourited_plates"
             android:textSize="20sp"
+            android:textColor="@android:color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
     </LinearLayout>

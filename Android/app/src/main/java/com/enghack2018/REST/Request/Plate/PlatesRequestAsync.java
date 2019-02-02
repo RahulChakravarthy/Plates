@@ -8,19 +8,21 @@ import com.enghack2018.REST.Request.BaseRequest;
 import com.enghack2018.REST.RequestController;
 import com.enghack2018.REST.Response.AsyncCallBackResponse;
 
-import java.util.HashMap;
-import java.util.Map;
+import javax.inject.Inject;
+import javax.inject.Singleton;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.http.Body;
 import retrofit2.http.GET;
-import retrofit2.http.Path;
 import retrofit2.http.Query;
 
+@Singleton
 public class PlatesRequestAsync extends BaseRequest {
+
+    @Inject
+    public PlatesRequestAsync(){}
 
     interface Plates {
         @GET("plates")

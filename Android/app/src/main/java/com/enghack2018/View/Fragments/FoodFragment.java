@@ -69,6 +69,12 @@ public class FoodFragment extends Fragment {
                         .setSwipeInMsgLayoutId(R.layout.plate_swipe_in_msg_view)
                         .setSwipeOutMsgLayoutId(R.layout.plate_swipe_out_msg_view));
 
+        swipePlaceHolderView.addItemRemoveListener(count -> {
+            if (count == 0) {
+                this.rootView.findViewById(R.id.outOfRestaurants).setVisibility(View.VISIBLE);
+            }
+        });
+
         for (PlateDO plateDO : plateDOS){
             swipePlaceHolderView.addView(new PlateCard(getContext(), plateDO, swipePlaceHolderView, (plateDO1) -> {
                 mainDataCallBack.addOneToFavouritePlate(plateDO1);

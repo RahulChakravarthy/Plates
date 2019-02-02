@@ -1,12 +1,12 @@
 package com.enghack2018.Controllers;
 
 
+import android.arch.lifecycle.MutableLiveData;
+import android.arch.lifecycle.ViewModel;
 import android.content.Context;
-import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.widget.Toast;
 
-import com.enghack2018.Activities.MainDataActivity;
 import com.enghack2018.Model.PlateDO;
 import com.enghack2018.Model.ResponseModelDO;
 import com.enghack2018.R;
@@ -15,9 +15,11 @@ import com.enghack2018.REST.Response.AsyncCallBackResponse;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.inject.Inject;
+import javax.inject.Singleton;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -26,14 +28,18 @@ import retrofit2.Response;
 /**
  * Splash Screen Controller
  */
-public class SplashScreenController {
+@Singleton
+public class SplashScreenController extends ViewModel {
 
     private PlatesRequestAsync platesRequestAsync;
     private Context context;
 
-    public SplashScreenController(Context context){
+    public MutableLiveData<List<PlateDO>> platesLiveData = new MutableLiveData<>();
+
+    @Inject
+    public SplashScreenController(Context context, PlatesRequestAsync platesRequestAsync){
         this.context = context;
-        this.platesRequestAsync = new PlatesRequestAsync();
+        this.platesRequestAsync = platesRequestAsync;
     }
 
     public void fetchData(int amount){
@@ -54,9 +60,7 @@ public class SplashScreenController {
                             jsonObject.get("rating").getAsString()));
                 }
 
-                Intent intent = new Intent(context, MainDataActivity.class);
-                intent.putExtra("plates", (Serializable) plateDOS);
-                context.startActivity(intent);
+                platesLiveData.setValue(plateDOS);
             }
 
             @Override
