@@ -58,7 +58,7 @@ public class SplashScreenController extends ViewModel {
             public void afterOperation(List<PlateDO> result) {
                 if (result.isEmpty()) {
                     //Do rest call to fetch more plates
-                    fetchData(20);
+                    fetchData(50);
                 } else {
                     //We found plates already in memory don't do another rest call
                     platesLiveData.postValue(result);

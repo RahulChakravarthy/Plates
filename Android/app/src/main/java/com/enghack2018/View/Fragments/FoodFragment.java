@@ -73,6 +73,9 @@ public class FoodFragment extends Fragment {
         swipePlaceHolderView.addItemRemoveListener(count -> {
             if (count == 0) {
                 this.rootView.findViewById(R.id.outOfRestaurants).setVisibility(View.VISIBLE);
+                this.rootView.findViewById(R.id.acceptBtn).setVisibility(View.GONE);
+                this.rootView.findViewById(R.id.rejectBtn).setVisibility(View.GONE);
+
             }
         });
 

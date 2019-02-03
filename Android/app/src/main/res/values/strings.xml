@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">EngHack2018</string>
+    <string name="app_name">Plates</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="cannot_conect_to_servers">Cannot connect to servers</string>
@@ -15,5 +15,5 @@
     <string name="feature_coming_soon">Feature Coming soon...</string>
     <string name="link_to_google_maps">Link to google maps:</string>
     <string name="view_location">View location</string>
-    <string name="out_of_restaurants">Out of Restaurants Check Back Later!</string>
+    <string name="out_of_restaurants">Out of Restaurants, Check Back Later!</string>
 </resources>
