@@ -31,9 +31,11 @@ public class SplashScreenActivity extends AppCompatActivity {
 
     private void setUpController() {
         this.splashScreenController.platesLiveData.observe(this, plateDOS -> {
+            //plates have been loaded into memory switch to main data activity
             startActivity(new Intent(this, MainDataActivity.class));
         });
-        this.splashScreenController.fetchData(50);
+        //Setup the controller and fetch data
+        this.splashScreenController.setupController();
     }
 
     private void setUpView() {

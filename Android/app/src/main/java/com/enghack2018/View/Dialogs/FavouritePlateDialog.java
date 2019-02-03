@@ -11,8 +11,7 @@ import android.support.annotation.NonNull;
 import android.view.View;
 import android.view.Window;
 import android.widget.TextView;
-
-import com.enghack2018.Model.PlateDO;
+import com.enghack2018.Model.dataobject.PlateDO;
 import com.enghack2018.R;
 
 public class FavouritePlateDialog extends Dialog implements View.OnClickListener {

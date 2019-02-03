@@ -1,6 +1,7 @@
 package com.enghack2018.View.Adapters.CallBacks;
 
-import com.enghack2018.Model.PlateDO;
+
+import com.enghack2018.Model.dataobject.PlateDO;
 
 public interface PlateOnClickListener {
 

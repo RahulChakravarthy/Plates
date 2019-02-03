@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import com.enghack2018.Activities.CallBacks.MainDataCallBack;
 import com.enghack2018.Controllers.MainDataController;
 import com.enghack2018.Controllers.SplashScreenController;
-import com.enghack2018.Model.PlateDO;
+import com.enghack2018.Model.dataobject.PlateDO;
 import com.enghack2018.R;
 import com.enghack2018.View.MainDataView;
 
@@ -29,11 +29,16 @@ public class MainDataActivity extends AppCompatActivity implements MainDataCallB
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_data);
         MainApplication.mainApplicationComponent.inject(this);
-        setupController();
         setupView();
+        setupController();
     }
 
     private void setupController() {
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
     }
 
     @SuppressWarnings("ALL")
@@ -43,9 +48,7 @@ public class MainDataActivity extends AppCompatActivity implements MainDataCallB
     }
 
     @Override
-    public void onBackPressed(){
-        super.onBackPressed();
-    }
+    public void onBackPressed(){}
 
     @Override
     public List<PlateDO> getFavouritePlates() {
@@ -56,10 +59,13 @@ public class MainDataActivity extends AppCompatActivity implements MainDataCallB
     @SuppressWarnings("ALL")
     public void addOneToFavouritePlate(PlateDO plateDO) {
        mainDataController.favouritePlates.getValue().add(plateDO);
-        if (mainDataController.favouritePlates.getValue().size() == 1){
-            this.mainDataView.createRecyclerView();
-        } else {
-            this.mainDataView.refreshRecyclerView();
-        }
+       mainDataController.addFavouritePlate(plateDO);
+       splashScreenController.removePlateFromDB(plateDO);
+       mainDataView.refreshRecyclerView();
+    }
+
+    @Override
+    public void rejectPlate(PlateDO plateDO) {
+        splashScreenController.removePlateFromDB(plateDO);
     }
 }

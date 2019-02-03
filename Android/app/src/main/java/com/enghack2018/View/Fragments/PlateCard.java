@@ -5,7 +5,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.enghack2018.Model.PlateDO;
+import com.enghack2018.Model.dataobject.PlateDO;
 import com.enghack2018.R;
 import com.enghack2018.View.Fragments.CallBack.SwipeCallBack;
 import com.mindorks.placeholderview.SwipePlaceHolderView;
@@ -61,6 +61,7 @@ public class PlateCard {
     private void onSwipedOut(){
         //Log.d("EVENT", "onSwipedOut");
         swipePlaceHolderView.addView(this);
+        this.swipeCallBack.onSwipeOut(plateDO);
     }
 
     @SwipeCancelState

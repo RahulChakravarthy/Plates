@@ -1,12 +1,9 @@
-package com.enghack2018.Model;
+package com.enghack2018.Model.dataobject;
 
 
+import com.enghack2018.Model.DataObject;
 import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-
-import org.json.JSONArray;
-import org.json.JSONObject;
 
 import java.io.IOException;
 
@@ -16,7 +13,7 @@ import retrofit2.Response;
 /**
  * Base response model data object
  */
-public class ResponseModelDO extends  DataObject {
+public class ResponseModelDO extends DataObject {
 
     private JsonArray result;
 

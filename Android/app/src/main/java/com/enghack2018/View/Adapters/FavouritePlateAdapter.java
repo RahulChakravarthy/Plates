@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.enghack2018.Model.PlateDO;
+import com.enghack2018.Model.dataobject.PlateDO;
 import com.enghack2018.R;
 import com.enghack2018.View.Adapters.CallBacks.PlateOnClickListener;
 

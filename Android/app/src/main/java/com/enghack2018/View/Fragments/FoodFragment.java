@@ -9,8 +9,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.enghack2018.Activities.CallBacks.MainDataCallBack;
-import com.enghack2018.Model.PlateDO;
+import com.enghack2018.Model.dataobject.PlateDO;
 import com.enghack2018.R;
+import com.enghack2018.View.Fragments.CallBack.SwipeCallBack;
 import com.mindorks.placeholderview.SwipeDecor;
 import com.mindorks.placeholderview.SwipePlaceHolderView;
 
@@ -76,8 +77,16 @@ public class FoodFragment extends Fragment {
         });
 
         for (PlateDO plateDO : plateDOS){
-            swipePlaceHolderView.addView(new PlateCard(getContext(), plateDO, swipePlaceHolderView, (plateDO1) -> {
-                mainDataCallBack.addOneToFavouritePlate(plateDO1);
+            swipePlaceHolderView.addView(new PlateCard(getContext(), plateDO, swipePlaceHolderView, new SwipeCallBack() {
+                @Override
+                public void onSwipeIn(PlateDO plateDO) {
+                    mainDataCallBack.addOneToFavouritePlate(plateDO);
+                }
+
+                @Override
+                public void onSwipeOut(PlateDO plateDO) {
+                    mainDataCallBack.rejectPlate(plateDO);
+                }
             }));
         }
 

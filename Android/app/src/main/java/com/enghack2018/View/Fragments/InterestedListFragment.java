@@ -53,7 +53,7 @@ public class InterestedListFragment extends Fragment  implements SwipeRefreshLay
     @Override
     public void onActivityCreated(Bundle savedOnInstance){
         super.onActivityCreated(savedOnInstance);
-
+        createRecyclerView();
     }
 
 
@@ -64,7 +64,7 @@ public class InterestedListFragment extends Fragment  implements SwipeRefreshLay
     }
 
     public void createRecyclerView() {
-        if (mainDataCallBack.getFavouritePlates().isEmpty()){
+        if (mainDataCallBack.getFavouritePlates().isEmpty()) {
             //First hide all the default setup views
             this.rootView.findViewById(R.id.noFavourites).setVisibility(View.VISIBLE);
         } else {
@@ -86,7 +86,9 @@ public class InterestedListFragment extends Fragment  implements SwipeRefreshLay
     }
 
     public void refreshRecyclerView() {
-        if (favouritePlateAdapter != null){
+        if (favouritePlateAdapter == null) {
+            createRecyclerView();
+        } else {
             favouritePlateAdapter.notifyItemInserted(mainDataCallBack.getFavouritePlates().size() - 1);
         }
     }
